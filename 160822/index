@@ -32,6 +32,7 @@
             <th>id</th>
             <th>名字</th>
             <th>性別</th>
+            <th>link</th>
           </tr>
         </thead>
         <tbody>
@@ -39,16 +40,21 @@
             <td>1005</td>
             <td>Alina</td>
             <td>F</td>
+            <td>
+              <a href="http://whoscall.com" class="btn btn-primary">official site</a>
+            </td>
           </tr>
           <tr>
             <td>1006</td>
             <td>Connie</td>
             <td>F</td>
+            <td></td>
           </tr>
           <tr>
             <td>1007</td>
             <td>Wes</td>
             <td>M</td>
+            <td></td>
           </tr>
         </tbody>
       </table>
