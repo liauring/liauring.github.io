@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <style>
+      .row div{border: 1px solid #000;}
+      .row>div{padding: 10px 10px 0;}
+      img{width: 100%}
+      form{margin: 50px 50px;}
+      .form-control{width:50%;}
+      .radio,.checkbox{margin-top: 0;}
+
+
+
+    </style>
+
+    <!-- HTML5 shim and Respond.js 讓 IE8 支援 HTML5 元素與媒體查詢 -->
+    <!-- 警告：Respond.js 無法在 file:// 協定下運作 -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <form role="form">
+        <h1>報名表</h1>
+        <label>姓名</label>
+        <div class="form-group">
+          <input type="text" class="form-control" id="name" placeholder="你的姓名" maxlength="3">
+        </div>
+        <div class="form-group">
+          <label class="rc">性別</label>
+          <div class=radio>
+            <label>
+              <input type="radio" name="gender" id="gender_male" value="male">男
+            </label>
+          </div>
+          <div class=radio>
+            <label>
+              <input type="radio" name="gender" id="gender_female" value="female">女
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>居住城市</label>
+          <select class="form-control" id="city">
+            <option value="1">台北市</option>
+            <option value="2">台中市</option>
+            <option value="3">高雄市</option>
+            <option value="4">台南市</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="rc">興趣</label>
+          <div>
+            <label>
+              <input type="checkbox" name="interest" value="travel">旅遊
+            </label>
+          </div>
+          <div>
+            <label>
+              <input type="checkbox" name="interest" value="reading">閱讀
+            </label>
+          </div>
+          <div>
+            <label>
+              <input type="checkbox" name="interest" value="GO">圍棋
+            </label>
+          </div>
+          <div>
+            <label>
+              <input type="checkbox" name="interest" value="pokemon_GO">寶可夢圍棋
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>自我介紹</label>
+          <textarea class="form-control" rows="3" id="introduction"></textarea>
+        </div>
+        <button type=button id="js-btn-summit" class="btn btn-default">summit</button>
+      </form>
+      
+    </div>
+    <!-- jQuery (Bootstrap 所有外掛均需要使用) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- 依需要參考已編譯外掛版本（如下），或各自獨立的外掛版本 -->
+    <script src="js/bootstrap.js"></script>
+    <script>
+      $(function(){
+        $('input[name="gender"][value="male"]').prop("checked",true);
+        $('#city').val("2");
+        $('input[name="interest"][value="GO"]').prop("checked",true);$('input[name="interest"][value="pokemon_GO"]').prop("checked",true);
+        $('#introduction').val("為什麼都沒有好吃的零食，我要樂事不要王子麵");
+        $("#js-btn-summit").on("click",function(){
+          //alert($("#name").val());
+          var allpass = true;
+          if($("#name").val()==""){
+            allpass = false;
+          }
+
+          if(allpass){
+            var interest = "";
+            for(var i = 0;i< $('input[name="interest"]:checked').length;i++)
+            {
+              interest += $('input[name="interest"]:checked').eq(i).val() +" ";
+              //interest += $('input[name="interest"]:checked')[i].value +" ";
+            }
+            var str = "name:"+$("#name").val()+"\ngender:"+$('input[name="gender"]:checked').val()+"\ncity:"+$('#city').val()+"\ninterest:"+interest+"\nintroduction:"+$('#introduction').val()
+            alert(str);
+          }else{
+            alert("輸入錯誤");
+          }
+        })
+      })
+    </script>
+  </body>
+</html>
